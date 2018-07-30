@@ -1,7 +1,7 @@
 import { combineReducers } from "redux"
 
-import placeHolder from "./placeHolderReducer"
+import assessment from "./assessment"
 
 export default combineReducers({
-  placeHolder
+  assessment
 })
