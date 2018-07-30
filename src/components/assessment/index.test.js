@@ -2,6 +2,7 @@ import React from "react"
 import { shallow } from "enzyme"
 
 import Assessment from "./"
+import Questions from "../questions"
 
 describe("Assessment", () => {
   it("renders", () => {
@@ -9,8 +10,8 @@ describe("Assessment", () => {
     expect(wrapper.length).toBe(1)
   })
 
-  it("has a title", () => {
+  it("renders questions", () => {
     const wrapper = shallow(<Assessment />)
-    expect(wrapper.children().text()).toBe("Assessment")
+    expect(wrapper.find(Questions).exists()).toBe(true)
   })
 })
