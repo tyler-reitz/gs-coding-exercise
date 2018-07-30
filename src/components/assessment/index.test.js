@@ -22,7 +22,7 @@ describe("Assessment", () => {
     expect(wrapper.find(Choices).exists()).toBe(true)
   })
 
-  it("renders a steppr", () => {
+  it("renders a stepper", () => {
     const wrapper = shallow(<Assessment />)
     expect(wrapper.find(Stepper).exists()).toBe(true)
   })
