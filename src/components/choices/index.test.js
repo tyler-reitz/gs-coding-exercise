@@ -35,4 +35,9 @@ describe("Choices", () => {
     const wrapper = shallow(<Choices choices={choices} />)
     expect(wrapper.find(Choice).length).toBe(4)
   })
+
+  it("passes props down to it's root component", () => {
+    const propWithClassName = { ...props, className: "some-class" }
+    const wrapper = shallow(<Choices {...propWithClassName} />)
+  })
 })

@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 
 import Choice from "../choice"
 
-const Choices = ({ choices }) => (
-  <div>
+const Choices = ({ choices, className }) => (
+  <div className={className}>
     {choices.map((choice, idx) => (
       <div key={`${choice.name}-${idx}`}>
         <Choice {...choice} idx={idx} />
@@ -14,7 +14,8 @@ const Choices = ({ choices }) => (
 )
 
 Choices.propTypes = {
-  choices: PropTypes.array.isRequired
+  choices: PropTypes.array.isRequired,
+  className: PropTypes.string
 }
 
 export default Choices
