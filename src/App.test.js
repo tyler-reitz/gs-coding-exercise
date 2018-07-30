@@ -47,5 +47,13 @@ describe("App", () => {
         expect(wrapper.find(FourOhFour)).toHaveLength(0)
       })
     })
+
+    describe("/", () => {
+      it("redirects to /assessment", () => {
+        const wrapper = setup("/")
+
+        expect(wrapper.find(Assessment)).toHaveLength(1)
+      })
+    })
   })
 })

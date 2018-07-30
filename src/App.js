@@ -1,5 +1,10 @@
 import React, { Component, Fragment } from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom"
 
 import "./App.css"
 import Assessment from "./components/assessment"
@@ -12,6 +17,7 @@ class App extends Component {
         <h1>Welcome Robert Ferraro</h1>
         <Router>
           <Switch>
+            <Redirect exact from="/" to="/assessment" />
             <Route path="/assessment" component={Assessment} />
             <Route path="*" component={FourOhFour} />
           </Switch>
