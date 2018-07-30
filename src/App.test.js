@@ -1,10 +1,13 @@
 import React from "react"
+import { Provider } from "react-redux"
 import { mount, shallow } from "enzyme"
 import { MemoryRouter } from "react-router-dom"
 
 import App from "./App"
-import Assessment from "./components/assessment"
+import { Assessment } from "./components/assessment"
 import FourOhFour from "./components/404"
+
+import { storeFactory } from "./testUtils"
 
 describe("App", () => {
   it("renders without crashing", () => {
@@ -15,9 +18,11 @@ describe("App", () => {
   describe("Router", () => {
     const setup = route =>
       mount(
-        <MemoryRouter initialEntries={[route]} initialIndex={0}>
-          <App />
-        </MemoryRouter>
+        <Provider store={storeFactory()}>
+          <MemoryRouter initialEntries={[route]} initialIndex={0}>
+            <App />
+          </MemoryRouter>
+        </Provider>
       )
 
     describe("/", () => {
@@ -56,4 +61,5 @@ describe("App", () => {
       })
     })
   })
+
 })

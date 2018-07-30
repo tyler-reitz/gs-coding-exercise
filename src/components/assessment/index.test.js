@@ -1,11 +1,13 @@
 import React from "react"
 import { shallow } from "enzyme"
 
-import Assessment from "./"
+import ConnectedAssessment, { Assessment } from "./"
 import Questions from "../questions"
 import Choices from "../choices"
 import Stepper from "../stepper"
 import GoBack from "../goback"
+
+import { storeFactory } from "../../testUtils"
 
 describe("Assessment", () => {
   it("renders", () => {
@@ -31,5 +33,12 @@ describe("Assessment", () => {
   it("renders a stepper", () => {
     const wrapper = shallow(<Assessment />)
     expect(wrapper.find(GoBack).exists()).toBe(true)
+  })
+
+  describe("Store connection", () => {
+    const store = storeFactory()
+    console.log(shallow(<ConnectedAssessment store={store} />).dive())
+
+    it("renders", () => { })
   })
 })
