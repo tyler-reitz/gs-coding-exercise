@@ -1,8 +1,8 @@
-import React from "react"
+import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 
 const Choices = ({ idx, name, value, text }) => (
-  <div>
+  <Fragment>
     <input
       type="radio"
       name={name}
@@ -10,8 +10,13 @@ const Choices = ({ idx, name, value, text }) => (
       id={`${name}-${idx}`}
       hidden
     />
-    <label htmlFor={`${name}-${idx}`}>{text}</label>
-  </div>
+    <label 
+      className="bg-gradient-light p-4 rounded" 
+      htmlFor={`${name}-${idx}`}
+    >
+      {text}
+    </label>
+  </Fragment>
 )
 
 Choices.propTypes = {

@@ -1,12 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
+import classNames from "classnames"
 
 import Choice from "../choice"
 
 const Choices = ({ choices, className }) => (
-  <div className={className}>
+  <div className={classNames(className, "d-md-flex")}>
     {choices.map((choice, idx) => (
-      <div key={`${choice.name}-${idx}`}>
+      <div className="mx-md-3 my-1" key={`${choice.name}-${idx}`}>
         <Choice {...choice} idx={idx} />
       </div>
     ))}
