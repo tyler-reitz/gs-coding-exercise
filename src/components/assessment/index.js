@@ -3,9 +3,11 @@ import React, { Component } from "react"
 import Questions from "../questions"
 import Choices from "../choices"
 import Stepper from "../stepper"
+import GoBack from "../goback"
 
 export default () => (
   <div>
+    <GoBack currentStep={2} />
     <Stepper current={2} total={4} />
     <Questions
       title="What is Lorem Ipsum…"

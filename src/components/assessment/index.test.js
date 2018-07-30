@@ -5,6 +5,7 @@ import Assessment from "./"
 import Questions from "../questions"
 import Choices from "../choices"
 import Stepper from "../stepper"
+import GoBack from "../goback"
 
 describe("Assessment", () => {
   it("renders", () => {
@@ -25,5 +26,10 @@ describe("Assessment", () => {
   it("renders a stepper", () => {
     const wrapper = shallow(<Assessment />)
     expect(wrapper.find(Stepper).exists()).toBe(true)
+  })
+
+  it("renders a stepper", () => {
+    const wrapper = shallow(<Assessment />)
+    expect(wrapper.find(GoBack).exists()).toBe(true)
   })
 })
