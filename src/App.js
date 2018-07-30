@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App bg-light">
-        <h1>Welcome Robert Ferraro</h1>
+        <h2 className="text-muted">Welcome Robert Ferraro</h2>
         <Router>
           <Switch>
             <Redirect exact from="/" to="/assessment" />
