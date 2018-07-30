@@ -13,7 +13,7 @@ import FourOhFour from "./components/404"
 class App extends Component {
   render() {
     return (
-      <div className="App bg-light p-4 p-md-5">
+      <div className="App bg-light p-4 p-md-5 text-muted">
         <h2 className="text-muted">Welcome Robert Ferraro</h2>
         <Router>
           <Switch>
