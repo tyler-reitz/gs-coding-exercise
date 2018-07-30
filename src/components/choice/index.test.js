@@ -55,6 +55,12 @@ describe("Choice", () => {
         `${props.name}-${props.idx}`
       )
     })
+
+    it("is hidden", () => {
+      const wrapper = shallow(<Choice {...props} />)
+      const radioButton = wrapper.find("input[type='radio']")
+      expect(wrapper.find("input[type='radio']").props().hidden).toBe(true)
+    })
   })
 
   describe("label", () => {
