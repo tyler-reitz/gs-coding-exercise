@@ -20,6 +20,14 @@ describe("App", () => {
         </MemoryRouter>
       )
 
+    describe("/", () => {
+      it("redirects to /assessment", () => {
+        const wrapper = setup("/")
+
+        expect(wrapper.find(Assessment)).toHaveLength(1)
+      })
+    })
+
     describe("/*", () => {
       it("invalid path should redirect to 404", () => {
         const wrapper = setup("/random")
@@ -45,14 +53,6 @@ describe("App", () => {
         const wrapper = setup("/assessment")
 
         expect(wrapper.find(FourOhFour)).toHaveLength(0)
-      })
-    })
-
-    describe("/", () => {
-      it("redirects to /assessment", () => {
-        const wrapper = setup("/")
-
-        expect(wrapper.find(Assessment)).toHaveLength(1)
       })
     })
   })
