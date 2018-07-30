@@ -3,6 +3,7 @@ import { shallow } from "enzyme"
 import checkPropTypes from "check-prop-types"
 
 import Choices from "./"
+import Choice from "../choice"
 
 describe("Choices", () => {
   let props = {
@@ -26,8 +27,12 @@ describe("Choices", () => {
   })
 
   it("renders the correct amount of choices", () => {
-    const choices = Array(4).fill(null)
+    const choices = Array(4).fill({
+      name: "some question",
+      value: Math.round(Math.random() * 100),
+      text: "The questions's text"
+    })
     const wrapper = shallow(<Choices choices={choices} />)
-    expect(wrapper.children().length).toBe(4)
+    expect(wrapper.find(Choice).length).toBe(4)
   })
 })

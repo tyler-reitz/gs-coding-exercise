@@ -70,8 +70,7 @@ describe("Choice", () => {
 
     it("associate the label with an input", () => {
       const wrapper = shallow(<Choice {...props} />)
-      console.log(wrapper.find("label").props().for)
-      expect(wrapper.find("label").props().for).toBe(
+      expect(wrapper.find("label").props().htmlFor).toBe(
         `${props.name}-${props.idx}`
       )
     })

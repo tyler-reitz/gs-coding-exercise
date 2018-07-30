@@ -3,6 +3,7 @@ import { shallow } from "enzyme"
 
 import Assessment from "./"
 import Questions from "../questions"
+import Choices from "../choices"
 
 describe("Assessment", () => {
   it("renders", () => {
@@ -13,5 +14,10 @@ describe("Assessment", () => {
   it("renders questions", () => {
     const wrapper = shallow(<Assessment />)
     expect(wrapper.find(Questions).exists()).toBe(true)
+  })
+
+  it("renders choices", () => {
+    const wrapper = shallow(<Assessment />)
+    expect(wrapper.find(Choices).exists()).toBe(true)
   })
 })

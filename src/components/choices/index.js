@@ -1,8 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import Choice from "../choice"
+
 const Choices = ({ choices }) => (
-  <div>{choices.map(choice => <div key={choice}>{choice}</div>)}</div>
+  <div>
+    {choices.map((choice, idx) => (
+      <div key={`${choice.name}-${idx}`}>
+        <Choice {...choice} idx={idx} />
+      </div>
+    ))}
+  </div>
 )
 
 Choices.propTypes = {

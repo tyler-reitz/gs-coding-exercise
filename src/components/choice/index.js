@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 const Choices = ({ idx, name, value, text }) => (
   <div>
     <input type="radio" name={name} value={value} id={`${name}-${idx}`} />
-    <label for={`${name}-${idx}`}>{text}</label>
+    <label htmlFor={`${name}-${idx}`}>{text}</label>
   </div>
 )
 
