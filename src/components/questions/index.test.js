@@ -39,4 +39,9 @@ describe("Questions", () => {
     expect(wrapper.find("p.lead").exists()).toBe(true)
     expect(wrapper.find("p.lead").text()).toBe(props.question)
   })
+
+  it("passes props down to it's root component", () => {
+    const propWithClassName = { ...props, className: "some-class" }
+    const wrapper = shallow(<Questions {...propWithClassName} />)
+  })
 })
