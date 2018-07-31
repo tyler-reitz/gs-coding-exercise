@@ -7,10 +7,13 @@ import { storeFactory } from "../../testUtils"
 
 describe("Choice", () => {
   const props = {
+    total: 2,
+    currentStep: 1,
     name: "nameOfRadioGroup",
     value: 2,
     idx: 1,
-    text: "text of the choice"
+    text: "text of the choice",
+    total: 2
   }
 
   describe("input[type='radio']", () => {
@@ -87,6 +90,13 @@ describe("Choice", () => {
       const wrapper = shallow(<Choice {...props} setCurrentStep={setCurrentStepMock} />)
       wrapper.find("label").simulate("click")
       expect(setCurrentStepMock.mock.calls.length).toBe(1)
+    })
+
+    it("calls setScore onClick", () => {
+      const setScoreMock = jest.fn()
+      const wrapper = shallow(<Choice {...props} setScore={setScoreMock} />)
+      wrapper.find("label").simulate("click")
+      expect(setScoreMock.mock.calls.length).toBe(1)
     })
   })
 })

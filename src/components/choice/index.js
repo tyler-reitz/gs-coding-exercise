@@ -2,12 +2,12 @@ import React, { Fragment, Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import { setCurrentStep } from "../../actions"
+import { setCurrentStep, setScore } from "../../actions"
 import { incrementStep } from "../../utils"
 
 export class Choice extends Component {
   render() {
-    const { idx, name, value, text, total, currentStep, setCurrentStep = () => {} } = this.props
+    const { idx, name, value, text, total, currentStep, setScore = () => {}, setCurrentStep = () => {} } = this.props
 
     return (
       <Fragment>
@@ -19,7 +19,12 @@ export class Choice extends Component {
           hidden
         />
         <label 
-          onClick={() => setCurrentStep(incrementStep(currentStep, total))}
+          onClick={() => {
+            if (currentStep <= total - 1) {
+              setCurrentStep(incrementStep(currentStep, total))
+              setScore(value, currentStep)
+            }
+          }}
           className="bg-gradient-light p-4 rounded" 
           htmlFor={`${name}-${idx}`}
         >
@@ -39,5 +44,5 @@ Choice.propTypes = {
 
 export default connect(
   ({ currentStep, assessment }) => ({ currentStep, total: assessment.length }),
-  { setCurrentStep }
+  { setCurrentStep, setScore }
 )(Choice)
