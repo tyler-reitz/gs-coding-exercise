@@ -1,5 +1,4 @@
 import { actionTypes } from "../actions"
-import { incrementStep } from "../utils"
 
 export default (state = 0, { 
   type,
