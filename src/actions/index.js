@@ -32,7 +32,8 @@ export const stateShape = [{
 
 export const actionTypes = {
   LOAD_ASSESSMENT: "LOAD_ASSESSMENT",
-  SET_CURRENT_STEP: "SET_CURRENT_STEP"
+  SET_CURRENT_STEP: "SET_CURRENT_STEP",
+  SET_SCORE: "SET_SCORE"
 }
 
 export const loadAssessment = () => ({
@@ -43,4 +44,9 @@ export const loadAssessment = () => ({
 export const setCurrentStep = (step, total) => ({
   type: actionTypes.SET_CURRENT_STEP,
   payload: { step, total }
+})
+
+export const setScore = (value, step) => ({
+  type: actionTypes.SET_SCORE,
+  payload: { value, step }
 })
