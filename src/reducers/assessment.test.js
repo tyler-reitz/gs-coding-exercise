@@ -1,4 +1,5 @@
 import assessmentReducer from "./assessment"
+import { actionTypes } from "../actions"
 
 describe("Reducers - assessment", () => {
   const stateShape = [{
@@ -14,12 +15,18 @@ describe("Reducers - assessment", () => {
   }]
 
   it("returns an array as default state", () => {
-    const assessment = assessmentReducer()
+    const assessment = assessmentReducer(undefined, undefined)
     expect(assessment).toEqual([])
   })
 
   it("returns the correct state shape ", () => {
-    const assessment = assessmentReducer(stateShape)
+    const assessment = assessmentReducer(
+      { assessment: [] }, 
+      {
+        type: actionTypes.LOAD_ASSESSMENT,
+        payload: stateShape
+      }
+  )
     expect(assessment).toEqual(stateShape)
   })
 })
