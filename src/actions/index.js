@@ -31,10 +31,16 @@ export const stateShape = [{
 }]
 
 export const actionTypes = {
-  LOAD_ASSESSMENT: 'LOAD_ASSESSMENT',
+  LOAD_ASSESSMENT: "LOAD_ASSESSMENT",
+  SET_CURRENT_STEP: "SET_CURRENT_STEP"
 }
 
 export const loadAssessment = () => ({
   type: actionTypes.LOAD_ASSESSMENT,
   payload: stateShape
+})
+
+export const setCurrentStep = (step) => ({
+  type: actionTypes.SET_CURRENT_STEP,
+  payload: { step }
 })
