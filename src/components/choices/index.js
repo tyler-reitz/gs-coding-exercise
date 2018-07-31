@@ -5,7 +5,7 @@ import classNames from "classnames"
 import Choice from "../choice"
 
 const Choices = ({ choices, className }) => (
-  <div className={classNames(className, "d-md-flex")}>
+  <div className={classNames(className, "d-md-flex", "justify-content-center")}>
     {choices.map((choice, idx) => (
       <div className="mx-md-3 my-1" key={`${choice.name}-${idx}`}>
         <Choice name="foo" {...choice} idx={idx} />
