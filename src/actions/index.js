@@ -9,18 +9,24 @@ export const stateShape = [{
     value: 0
   }]
 }, {
-  title: "What is Lorem Ipsum…",
-  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+  title: "Where Does It Come From",
+  text: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a place of classical Latin Literature from 45 BC, making it over 200 years old.",
   choices: [{
-    text: "yes",
+    text: "Whaterver!",
     value: 1
   }, {
-    text: "no",
-    value: 0
+    text: "Ohk!!",
+    value: 2
+  }, {
+    text: "Hmmm… Maybe",
+    value: 3
+  }, {
+    text: "Yeah!!",
+    value: 4
   }]
 }, {
-  title: "What is Lorem Ipsum…",
-  text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+  title: "Actual Lorem Ipsum",
+  text: "loremaLoressitatibus aliquid sunt voluptatibus at recusandae tenetur. Facere iusto ut vel ducimus tenetur. Dolore rem magni aut molestiae fugiat magni ullam sed.",
   choices: [{
     text: "yes",
     value: 1
