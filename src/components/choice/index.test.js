@@ -84,7 +84,6 @@ describe("Choice", () => {
 
     it("calls setCurrentStep onClick", () => {
       const setCurrentStepMock = jest.fn()
-      const store = storeFactory()
       const wrapper = shallow(<Choice {...props} setCurrentStep={setCurrentStepMock} />)
       wrapper.find("label").simulate("click")
       expect(setCurrentStepMock.mock.calls.length).toBe(1)
