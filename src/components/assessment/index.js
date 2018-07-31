@@ -25,12 +25,12 @@ export class Assessment extends Component {
         </div>
         <Questions
           className="my-2"
-          title="What is Lorem Ipsum…"
-          question="Lorem ipsum is simply dummy text of the printing industry. Lorem Ipsum has been industry's standard dummy text ever since since the 1500s"
+          title={assessment[currentStep] ? assessment[currentStep].title : ''}
+          question={assessment[currentStep] ? assessment[currentStep].text : ''}
         />
         <Choices
           className="my-3"
-          choices={assessment[0] ?  assessment[0].choices : []}
+          choices={assessment[currentStep] ?  assessment[currentStep].choices : []}
         />
       </div>
     )
