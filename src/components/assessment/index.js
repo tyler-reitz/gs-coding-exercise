@@ -5,6 +5,7 @@ import Questions from "../questions"
 import Choices from "../choices"
 import Stepper from "../stepper"
 import GoBack from "../goback"
+import Score from "../score"
 
 import { loadAssessment } from "../../actions"
 
@@ -15,7 +16,7 @@ export class Assessment extends Component {
   }
 
   render() {
-    const { assessment = [], currentStep = 0 } = this.props
+    const { assessment = [], currentStep = 0, score = [] } = this.props
 
     return (
       <div className="card p-5 m-lg-5 assessment-border">
@@ -32,6 +33,9 @@ export class Assessment extends Component {
           className="my-3"
           choices={assessment[currentStep] ?  assessment[currentStep].choices : []}
         />
+        { 
+          score.length >= assessment.length && currentStep === assessment.length  && <Score score={score} /> 
+        }
       </div>
     )
   } 
