@@ -32,7 +32,7 @@ describe("GoBack", () => {
   })
 
   it("doesn't render if the currentStep is less than one", () => {
-    const wrapper = shallow(<GoBack currentStep={0} />)
+    const wrapper = shallow(<GoBack setCurrentStep={() => {}}currentStep={0} />)
     expect(wrapper.isEmptyRender()).toBe(true)
   })
 

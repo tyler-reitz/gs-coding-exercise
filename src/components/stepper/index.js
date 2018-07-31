@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const Stepper = ({ current, total }) => (
-  <span>{`Step ${current} of ${total}`}</span>
+  <span>{`Step ${current || 1} of ${total}`}</span>
 )
 
 Stepper.propTypes = {

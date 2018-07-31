@@ -3,13 +3,14 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 import { setCurrentStep } from "../../actions"
+import { decrementStep } from "../../utils"
 
 export class GoBack extends Component {
   render() {
-    const { currentStep, setCurrentStep } = this.props
+    const { currentStep, setCurrentStep, total } = this.props
 
     return (
-      currentStep > 0 && <img onClick={() => setCurrentStep(currentStep - 1)} src="images/prev.jpg" alt="back arrow" />
+      currentStep > 0 && <img onClick={() => setCurrentStep(decrementStep(currentStep, total))} src="images/prev.jpg" alt="back arrow" />
     )
   }
 }
@@ -20,6 +21,6 @@ GoBack.propTypes = {
 }
 
 export default connect(
-  state => state,
+  ({ currentStep, assessment }) => ({ currentStep, total: assessment.length }),
   { setCurrentStep }
 )(GoBack)

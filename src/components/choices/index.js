@@ -8,7 +8,7 @@ const Choices = ({ choices, className }) => (
   <div className={classNames(className, "d-md-flex")}>
     {choices.map((choice, idx) => (
       <div className="mx-md-3 my-1" key={`${choice.name}-${idx}`}>
-        <Choice {...choice} idx={idx} />
+        <Choice name="foo" {...choice} idx={idx} />
       </div>
     ))}
   </div>

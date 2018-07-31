@@ -40,7 +40,7 @@ export const loadAssessment = () => ({
   payload: stateShape
 })
 
-export const setCurrentStep = (step) => ({
+export const setCurrentStep = (step, total) => ({
   type: actionTypes.SET_CURRENT_STEP,
-  payload: { step }
+  payload: { step, total }
 })

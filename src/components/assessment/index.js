@@ -21,7 +21,7 @@ export class Assessment extends Component {
       <div className="card p-5 m-lg-5 assessment-border">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <GoBack currentStep={currentStep} />
-          <Stepper current={currentStep + 1} total={assessment.length} />
+          <Stepper current={currentStep} total={assessment.length} />
         </div>
         <Questions
           className="my-2"
