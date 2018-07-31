@@ -1,6 +1,5 @@
 import { storeFactory } from "./testUtils"
-import { loadAssessment, setCurrentStep } from "./actions"
-
+import { loadAssessment, setCurrentStep, setScore } from "./actions"
 import { incrementStep, decrementStep } from "./utils"
 
 describe("Action-Reducers Interaction", () => {
@@ -29,6 +28,14 @@ describe("Action-Reducers Interaction", () => {
       const store = storeFactory({ currentStep: 3, assessment: [] })
       store.dispatch(setCurrentStep(incrementStep(3, 3)))
       expect(store.getState().currentStep).toBe(3)
+    })
+  })
+
+  describe("setScore", () => {
+    it("updates the score with the current choices value", () => {
+      const store = storeFactory({ currentStep: 0, assessment: [], score: []})
+      store.dispatch(setScore(3, 0))
+      expect(store.getState().score).toEqual([3])
     })
   })
 })
