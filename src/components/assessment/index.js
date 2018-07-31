@@ -6,13 +6,22 @@ import Choices from "../choices"
 import Stepper from "../stepper"
 import GoBack from "../goback"
 
+import { loadAssessment } from "../../actions"
+
 export class Assessment extends Component {
+
+  componentDidMount() {
+    this.props.loadAssessment()
+  }
+
   render() {
+    const { assessment = [], currentStep = 0 } = this.props
+
     return (
       <div className="card p-5 m-lg-5 assessment-border">
         <div className="d-flex justify-content-between align-items-center mb-3">
           <GoBack currentStep={2} />
-          <Stepper current={2} total={4} />
+          <Stepper current={currentStep + 1} total={assessment.length} />
         </div>
         <Questions
           className="my-2"
@@ -21,34 +30,16 @@ export class Assessment extends Component {
         />
         <Choices
           className="my-3"
-          choices={[
-            {
-              name: "some question",
-              value: 3,
-              text: "here are some facts we expect you to know"
-            },
-            {
-              name: "some question",
-              value: 3,
-              text: "here are some facts we expect you to know"
-            },
-            {
-              name: "some question",
-              value: 3,
-              text: "here are some facts we expect you to know"
-            },
-            {
-              name: "some question",
-              value: 3,
-              text: "here are some facts we expect you to know"
-            }
-          ]}
+          choices={assessment[0] ?  assessment[0].choices : []}
         />
       </div>
     )
   } 
 }
 
-const mapStateToProps = state => state
+const mapStateToProps = (state) => state
 
-export default connect(mapStateToProps)(Assessment)
+export default connect(
+  mapStateToProps,
+  { loadAssessment }
+)(Assessment)

@@ -36,9 +36,23 @@ describe("Assessment", () => {
   })
 
   describe("Store connection", () => {
-    const store = storeFactory()
-    console.log(shallow(<ConnectedAssessment store={store} />).dive())
+    const setup = (initialState) => {
+      const store = storeFactory()
+      const wrapper = shallow(<ConnectedAssessment store={store} />).dive()
+      return wrapper 
+    }
 
-    it("renders", () => { })
+    it("renders", () => {
+      const wrapper = setup()
+      expect(wrapper.exists()).toBe(true)
+    })
+
+
+    it("loads state on mount", () => {
+      const loadAssessmentMock = jest.fn()
+      const wrapper = shallow(<Assessment loadAssessment={loadAssessmentMock} />)
+      wrapper.instance().componentDidMount()
+      expect(loadAssessmentMock.mock.calls.length).toBe(1)
+    })
   })
 })

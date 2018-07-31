@@ -2,7 +2,8 @@ import React from "react"
 import { shallow } from "enzyme"
 import checkPropTypes from "check-prop-types"
 
-import Choice from "./"
+import { Choice } from "./"
+import { storeFactory } from "../../testUtils"
 
 describe("Choice", () => {
   const props = {
@@ -79,6 +80,14 @@ describe("Choice", () => {
       expect(wrapper.find("label").props().htmlFor).toBe(
         `${props.name}-${props.idx}`
       )
+    })
+
+    it("calls setCurrentStep onClick", () => {
+      const setCurrentStepMock = jest.fn()
+      const store = storeFactory()
+      const wrapper = shallow(<Choice {...props} setCurrentStep={setCurrentStepMock} />)
+      wrapper.find("label").simulate("click")
+      expect(setCurrentStepMock.mock.calls.length).toBe(1)
     })
   })
 })

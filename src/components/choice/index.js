@@ -1,29 +1,42 @@
-import React, { Fragment } from "react"
+import React, { Fragment, Component } from "react"
+import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-const Choices = ({ idx, name, value, text }) => (
-  <Fragment>
-    <input
-      type="radio"
-      name={name}
-      value={value}
-      id={`${name}-${idx}`}
-      hidden
-    />
-    <label 
-      className="bg-gradient-light p-4 rounded" 
-      htmlFor={`${name}-${idx}`}
-    >
-      {text}
-    </label>
-  </Fragment>
-)
+import { setCurrentStep } from "../../actions"
 
-Choices.propTypes = {
+export class Choice extends Component {
+  render() {
+    const { idx, name, value, text, currentStep, setCurrentStep = () => {} } = this.props
+
+    return (
+      <Fragment>
+        <input
+          type="radio"
+          name={name}
+          value={value}
+          id={`${name}-${idx}`}
+          hidden
+        />
+        <label 
+          onClick={() => setCurrentStep(currentStep + 1)}
+          className="bg-gradient-light p-4 rounded" 
+          htmlFor={`${name}-${idx}`}
+        >
+          {text}
+        </label>
+      </Fragment>
+    )
+  }
+}
+
+Choice.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
   idx: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired
 }
 
-export default Choices
+export default connect(
+  ({ currentStep }) => ({ currentStep }),
+  { setCurrentStep }
+)(Choice)
