@@ -1,11 +1,25 @@
-import React from "react"
+import React, { Component } from "react"
+import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-const GoBack = ({ currentStep }) =>
-  currentStep > 0 && <img src="images/prev.jpg" alt="back arrow" />
+import { setCurrentStep } from "../../actions"
 
-GoBack.propTypes = {
-  currentStep: PropTypes.number.isRequired
+export class GoBack extends Component {
+  render() {
+    const { currentStep, setCurrentStep } = this.props
+
+    return (
+      currentStep > 0 && <img onClick={() => setCurrentStep(currentStep - 1)} src="images/prev.jpg" alt="back arrow" />
+    )
+  }
 }
 
-export default GoBack
+GoBack.propTypes = {
+  currentStep: PropTypes.number.isRequired,
+  setCurrentStep: PropTypes.func.isRequired
+}
+
+export default connect(
+  state => state,
+  { setCurrentStep }
+)(GoBack)

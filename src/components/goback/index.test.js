@@ -2,11 +2,12 @@ import React from "react"
 import { shallow } from "enzyme"
 import checkPropTypes from "check-prop-types"
 
-import GoBack from "./"
+import { GoBack } from "./"
 
 describe("GoBack", () => {
   const props = {
-    currentStep: 2
+    currentStep: 2,
+    setCurrentStep: jest.fn()
   }
 
   it("renders", () => {
@@ -38,5 +39,13 @@ describe("GoBack", () => {
   it("renders an image", () => {
     const wrapper = shallow(<GoBack {...props} />)
     expect(wrapper.find("img")).toHaveLength(1)
+  })
+
+  it("allows users to go back a step", () => {
+    const setCurrentStepMock = jest.fn()
+    const newProps = { ...props, setCurrentStep: setCurrentStepMock } 
+    const wrapper = shallow(<GoBack {...newProps} />)
+    wrapper.simulate("click")
+    expect(setCurrentStepMock.mock.calls.length).toBe(1)
   })
 })
